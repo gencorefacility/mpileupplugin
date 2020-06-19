@@ -1,0 +1,3 @@
+.jbrowse .wiggleValueDisplay td.count, tr.total, .track_mpileupplugin_view_track_snpcoverage .SNP-indicator-track{
+	display:none!important;
+}
