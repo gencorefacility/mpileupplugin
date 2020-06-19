@@ -80,11 +80,14 @@ function (
                                 const genotypes = f.get('genotypes');
                                 const genotypeOfInterest = genotypes[Object.keys(genotypes)[0]];
                                 const AD = (genotypeOfInterest.AD || {}).values || [];
+				const DP = genotypeOfInterest.DP.values
 
                                 const alleles = f.get('alternative_alleles');
                                 alleles.values.forEach((allele, index) => {
-                                    score -= AD[index + 1];
-                                    bin.increment(allele, AD[index + 1] || 0);
+				    freq = (AD[index + 1] / DP) * score
+				    console.log("AD = " + AD + "; DP = " + DP + "; freq = " + freq + "; score = " + score)
+                                    score -= freq;
+                                    bin.increment(allele, freq || 0);
                                 });
                             }
                             if (start > f.get('end') - 1) {
