@@ -1,5 +1,7 @@
 # mpilupplugin
 
+**This BigWigVcfAdDp class of this plugin has been modified to use the fraction AD/DP to calculate variant bar height rather then the original AD raw count. This is useful in cases where the DP in the VCF might differ from the DP in the input bam which was used to generate the coverage plot, for example when using GATK HaplotypeCaller which realigns your input bam.**
+
 This plugin offers some alternative ways to visualize SNPCoverage track types with alternate data sources
 
 This plugin is basically experimental. If it finds a use for you let me know! It is not really guaranteed to match up the depths called by your depth caller of choice and your VCF though.
